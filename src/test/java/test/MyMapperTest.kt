@@ -9,15 +9,16 @@ class MyMapperTest {
     private val mapper = MyMapperImpl()
 
     @Test fun shouldMapAtoB() {
-        val a = PojoA()
-        a.foo = "foos"
-        a.bar = "bars"
-        a.isPrimitiveBool = true
+        val a = PojoA(
+            foo = "foos",
+            bar = "bars",
+            ball = "ball"
+        )
 
         val b = mapper.toB(a)
 
         assertThat(b.fox).isEqualTo("foos")
         assertThat(b.bax).isEqualTo("bars")
-        assertThat(b.isPrimitiveBool).isTrue()
+        assertThat(b.ball).isEqualTo("ball")
     }
 }
